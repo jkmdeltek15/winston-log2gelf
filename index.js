@@ -6,7 +6,7 @@ const https = require('https');
 const Transport = require('winston-transport');
 const debug = require('debug')('winston-log2gelf');
 
-const WINSTON_LEVELS = {
+const DEFAULT_LEVELS = {
     error: 0,
     warn: 1,
     info: 2,
@@ -14,6 +14,8 @@ const WINSTON_LEVELS = {
     debug: 4,
     silly: 5
 };
+
+let WINSTON_LEVELS = DEFAULT_LEVELS;
 
 class Log2gelf extends Transport {
     constructor(options) {
@@ -39,6 +41,10 @@ class Log2gelf extends Transport {
         this.disableMessageSanification = options.disableMessageSanification || false;
         this.legacyFormat = options.legacyFormat || false;
         this.customPayload = {};
+
+        if(options.levels && typeof options.levels === 'object') {
+            WINSTON_LEVELS = options.levels;
+        }
 
         Object.keys(options).forEach((key) => {
             if (key[0] === '_') this.customPayload[key] = options[key];
