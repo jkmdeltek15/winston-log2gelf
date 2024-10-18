@@ -1,11 +1,11 @@
 {
-  "name": "winston-log2gelf",
+  "name": "@jkm_15/winston-log2-gelf",
   "version": "2.4.0",
-  "description": "Winston GELF transport to Graylog or Gelf server via TCP or HTTP (TLS and HTTPS ready)",
+  "description": "forked from winston-log2gelf to allow passing of log levels in the arguments",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Buzut/winston-log2gelf.git"
+    "url": "https://github.com/jkmdeltek15/winston-log2gelf.git"
   },
   "keywords": [
     "monitoring",
@@ -29,7 +29,7 @@
     "winston-transport": "^4.2.0"
   },
   "devDependencies": {
-    "eslint": "^4.19.1",
+    "eslint": "^9.12.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.12.0"
   }
